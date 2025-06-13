@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form [formGroup] ="signupForm" (ngSubmit)="onSubmit()" class="border p-4 rounded shadow">
+          <h3 class="text-center mb-4">Sign Up</h3>
+  
+          <div class="mb-3">
+            <label>Email</label>
+            <input type="email" class="form-control" formControlName="email">
+            <div class="text-danger" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+              Enter a valid email.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" formControlName="phone">
+            <div class="text-danger" *ngIf="signupForm.get('phone')?.touched && signupForm.get('phone')?.invalid">
+              Enter a valid 10-digit phone number.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label>Gender</label>
+            <select class="form-select" formControlName="gender">
+              <option value="" disabled selected>Select your gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="text-danger" *ngIf="signupForm.get('gender')?.touched && signupForm.get('gender')?.invalid">
+              Gender is required.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label>Username</label>
+            <input type="text" class="form-control" formControlName="username">
+            <div class="text-danger" *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid">
+              Username is required.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password">
+            <div class="text-danger" *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+              Password must be at least 6 characters.
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary w-100" [disabled]="signupForm.invalid">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
