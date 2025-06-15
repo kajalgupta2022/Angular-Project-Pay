@@ -8,10 +8,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, SignUp, Login, AddMoney,PayMoney,ReactiveFormsModule],
+  imports: [RouterOutlet, RouterLink,ReactiveFormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected title = 'Payment';
+  
 }
