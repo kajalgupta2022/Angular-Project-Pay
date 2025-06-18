@@ -1,0 +1,42 @@
+<div class="signup-wrapper">
+  <p-card header="Create Account" styleClass="signup-card">
+    <form (ngSubmit)="register()" #signupForm="ngForm">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12">
+          <label for="name">Full Name</label>
+          <input pInputText id="name" type="text" [(ngModel)]="name" name="name" required placeholder="Your name" />
+        </div>
+
+        <div class="p-field p-col-12">
+          <label for="phone">Phone Number</label>
+          <input pInputText id="phone" type="tel" [(ngModel)]="phone" name="phone" required placeholder="10-digit phone" />
+        </div>
+
+        <div class="p-field p-col-12">
+          <label for="email">Email</label>
+          <input pInputText id="email" type="email" [(ngModel)]="email" name="email" required placeholder="Your email" />
+        </div>
+
+        <div class="p-field p-col-12">
+          <label for="password">Password</label>
+          <input pPassword id="password" [(ngModel)]="password" name="password" required toggleMask placeholder="Create password" />
+        </div>
+
+        <div class="p-field p-col-12">
+          <label for="confirmPassword">Confirm Password</label>
+          <input pPassword id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required toggleMask placeholder="Repeat password" />
+        </div>
+
+        <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+
+        <div class="p-field p-col-12">
+          <button pButton type="submit" label="Sign Up" class="p-button-success w-full"></button>
+        </div>
+      </div>
+    </form>
+    <div class="text-center p-mt-2">
+      <span>Already have an account?</span>
+      <a routerLink="/login" class="login-link">Login</a>
+    </div>
+  </p-card>
+</div>

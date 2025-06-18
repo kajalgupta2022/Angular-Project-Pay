@@ -1,0 +1,23 @@
+<div class="login-wrapper">
+  <p-card header="Payment App Login" styleClass="login-card">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="p-field mb-3">
+        <label for="phone">Phone Number</label>
+        <input pInputText id="phone" type="tel" [(ngModel)]="phone" name="phone" required placeholder="Enter phone" />
+      </div>
+
+      <div class="p-field mb-3">
+        <label for="password">Password</label>
+        <input pPassword id="password" [(ngModel)]="password" name="password" required toggleMask />
+      </div>
+
+      <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+
+      <div class="p-d-flex p-jc-between p-mt-3">
+        <button pButton type="submit" label="Login" class="p-button-primary"></button>
+      </div>
+      
+      <button class="btn btn-primary" routerLink="/signup">Register</button>
+    </form>
+  </p-card>
+</div>

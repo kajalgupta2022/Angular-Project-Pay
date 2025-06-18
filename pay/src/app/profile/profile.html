@@ -1,0 +1,41 @@
+<div class="profile-wrapper">
+  <p-card>
+    <div class="p-d-flex p-ai-center p-flex-column">
+      <p-avatar image="{{ user.profileImage }}" size="xlarge" shape="circle" class="mb-3"></p-avatar>
+      <h2>{{ user.name }}</h2>
+      <p class="text-muted">{{ user.email }}</p>
+    </div>
+
+    <p-tabView class="mt-4">
+      <p-tabPanel header="Account Info">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label>Name</label>
+            <input pInputText [(ngModel)]="user.name" disabled />
+          </div>
+          <div class="p-field">
+            <label>Email</label>
+            <input pInputText [(ngModel)]="user.email" disabled />
+          </div>
+          <div class="p-field">
+            <label>Phone</label>
+            <input pInputText [(ngModel)]="user.phone" disabled />
+          </div>
+        </div>
+      </p-tabPanel>
+
+      <p-tabPanel header="Wallet">
+        <h3>Wallet Balance: ₹{{ user.walletBalance }}</h3>
+        <p>Joined on: {{ user.joinedDate }}</p>
+      </p-tabPanel>
+
+      <p-tabPanel header="Address">
+        <p>{{ user.address }}</p>
+      </p-tabPanel>
+    </p-tabView>
+
+    <div class="p-d-flex p-jc-center mt-3">
+      <button pButton label="Edit Profile" icon="pi pi-user-edit" class="p-button-success" (click)="updateProfile()" routerLink="dashboard" routerLinkActive="router-link-active" >Edit</button>
+    </div>
+  </p-card>
+</div>
