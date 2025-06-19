@@ -1,0 +1,55 @@
+
+
+<p-sidebar [(visible)]="showSidebar" position="left" [baseZIndex]="10000">
+  <h3>Payment Menu</h3>
+  <button pButton label="Check Balance" (click)="showSidebar = false"routerLink="/checkb" routerLinkActive="active" class="nav-link"></button>
+  <button pButton label="Add Money" class="mt-2" (click)="addMoney()"></button>
+  <button pButton label=" Money Transfer" class="mt-2" (click)="payMoney()"></button>
+  <button pButton label="Profile" class="mt-2" (click)="profile()"></button>
+  <button pButton label="History" class="mt-2" (click)="history()"></button>
+  <button pButton label="See Transaction" class="mt-2" (click)="seet()"></button>
+  <button pButton label="Delete Transaction" class="mt-2" (click)="deet()"></button>
+</p-sidebar>
+
+<div class="dashboard-container">
+  <p-button icon="pi pi-bars" label="Menu" (click)="showSidebar = true"></p-button>
+
+  <p-panel header="💰 Account Balance">
+    <h2>₹ {{ balance }}</h2>
+  </p-panel>
+
+  <p-panel header="📜 Transaction History">
+    <p-table [value]="transactions">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-tx>
+        <tr>
+          <td>{{ tx.type }}</td>
+          <td [ngClass]="{'text-success': tx.type==='Add', 'text-danger': tx.type==='Pay'}">₹{{ tx.amount }}</td>
+          <td>{{ tx.date | date:'short' }}</td>
+          <td>
+            <button pButton icon="pi pi-trash" class="p-button-danger" (click)="deleteTransaction(tx.id)" routerLink="/dth">dth</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+</div>
+
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
+
+
+
+
+
+
+
+

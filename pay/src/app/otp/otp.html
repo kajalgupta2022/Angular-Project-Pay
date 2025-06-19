@@ -1,0 +1,20 @@
+
+<div class="otp-wrapper">
+    <p-card header="OTP Verification" styleClass="otp-card">
+      <form (ngSubmit)="verifyOTP()" #otpForm="ngForm">
+        <div class="p-field mb-3">
+          <label for="otp">Enter the OTP sent to your phone</label>
+          <input pInputText id="otp" maxlength="6" [(ngModel)]="otpCode" name="otpCode" required placeholder="Enter 6-digit OTP" />
+        </div>
+  
+        <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+        <p-message *ngIf="successMessage" severity="success" text="{{ successMessage }}"></p-message>
+  
+        <div class="p-d-flex p-jc-between p-mt-3">
+          <button pButton type="submit" label="Verify OTP" class="p-button-success" routerLink="/dashboard">Submit</button>
+          <button pButton type="button" (click)="resendOTP()" label="Resend OTP" class="p-button-secondary"></button>
+        </div>
+      </form>
+    </p-card>
+  </div>
+  
